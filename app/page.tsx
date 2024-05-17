@@ -8,29 +8,38 @@ const getMockArgs = (from: number, to: number, step = 1) => {
   return xValues;
 };
 
+const getMockValues = (from: number, to: number, step = 1) => {
+  const yValues = [];
+  for (let i = from; i <= to; i += step) {
+    yValues.push(Math.floor(Math.random() * 1000));
+  }
+  return yValues;
+};
+
+const MOCK_DATA_FROM = 0;
+const MOCK_DATA_TO = 100;
+const MOCK_DATA_STEP = 10;
+
 const MainPage = () => {
-  const args = getMockArgs(0, 10);
+  const args = getMockArgs(MOCK_DATA_FROM, MOCK_DATA_TO, MOCK_DATA_STEP);
   const labels = args;
   const datasets = [
     {
-      label: "x^2",
-      data: args.map((x) => Math.pow(x, 2)),
+      label: "metrics1",
+      data: getMockValues(MOCK_DATA_FROM, MOCK_DATA_TO, MOCK_DATA_STEP),
       borderColor: "red",
     },
     {
-      label: "ln^5(x)",
-      data: args.map((x) => Math.pow(Math.log(x), 5)),
+      label: "metrics2",
+      data: getMockValues(MOCK_DATA_FROM, MOCK_DATA_TO, MOCK_DATA_STEP),
       borderColor: "teal",
     },
   ];
   return (
     <main>
       <h1>Main page</h1>
-      <p>*тут данные с бэка удобненько отображаются*</p>
+      <p>Страница с метриками и информацией по аудиозаписям</p>
       <section className="flex flex-wrap justify-center">
-        <Card datasets={datasets} labels={labels} />
-        <Card datasets={datasets} labels={labels} />
-        <Card datasets={datasets} labels={labels} />
         <Card datasets={datasets} labels={labels} />
       </section>
     </main>

@@ -1,10 +1,10 @@
-import Input from "@/components/CustomInput";
+import CustomInput from "@/components/CustomInput";
 
 const InputPage = () => {
   return (
     <div>
       <h1>Input page</h1>
-      <Input />
+      <CustomInput />
     </div>
   );
 };
