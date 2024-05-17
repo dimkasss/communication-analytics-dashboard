@@ -41,14 +41,27 @@ const Input = () => {
     }
     const formData = new FormData();
 
-    Array.from(files).forEach((file) => {
-      console.log("@file", file);
-      formData.append(file.name, file);
-    });
-    axios.post("api/audio", formData).then((res) => {
-      console.log("@response", res);
-      return res;
-    });
+    // Array.from(files).forEach((file) => {
+    //   console.log("@file", file);
+    //   formData.append(file.name, file);
+    // });
+
+    console.log("@@", Array.from(files)[0]);
+
+    formData.append("file", Array.from(files)[0]);
+
+    // http://158.160.128.49:8000/conversation/file
+    // api/audio
+    axios
+      .post("http://158.160.128.49:8000/conversation/file", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log("@response", res);
+        return res;
+      });
   };
 
   return (
