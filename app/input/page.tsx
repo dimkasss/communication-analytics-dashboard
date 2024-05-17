@@ -1,5 +1,12 @@
+import Input from "@/components/CustomInput";
+
 const InputPage = () => {
-  return <div>*тут можно будет отправить аудио*</div>;
+  return (
+    <div>
+      <h1>Input page</h1>
+      <Input />
+    </div>
+  );
 };
 
 export default InputPage;

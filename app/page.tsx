@@ -25,7 +25,8 @@ const MainPage = () => {
   ];
   return (
     <main>
-      <h1>*тут данные с бэка удобненько отображаются*</h1>
+      <h1>Main page</h1>
+      <p>*тут данные с бэка удобненько отображаются*</p>
       <section className="flex flex-wrap justify-center">
         <Card datasets={datasets} labels={labels} />
         <Card datasets={datasets} labels={labels} />
