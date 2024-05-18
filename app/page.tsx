@@ -5,15 +5,22 @@ import StatsShorten from "@/components/StatsShorten";
 
 const MainPage = () => {
   return (
-    <div className="h-3/4">
-      <section className="font-extrabold text-4xl w-2/5 p-2 pb-6">
-        Сервис по <span className="bg-[--red] px-2">мониторингу</span> деловых
-        переговоров
+    <div className="h-4/5">
+      <section className="font-extrabold text-4xl w-2/5 p-2 pb-8">
+        Сервис по{" "}
+        <span className="bg-[--red] px-2.5 py-[4px] text-[--white]">
+          мониторингу
+        </span>{" "}
+        деловых переговоров
       </section>
       <section className="w-full h-full">
         <div className="flex h-full gap-3">
           <div className="flex flex-col w-1/2 gap-3">
-            <BlockWrapper name="Текущие записи" url="/recordings/current">
+            <BlockWrapper
+              className="grow-0"
+              name="Текущие записи"
+              url="/recordings/current"
+            >
               <RecordingsList len={2} />
             </BlockWrapper>
             <BlockWrapper name="Статистика" url="/stats">

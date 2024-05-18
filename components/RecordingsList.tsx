@@ -7,7 +7,7 @@ interface RecordingsListProps {
 
 const RecordingsList: React.FC<RecordingsListProps> = ({ len }) => {
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       {len == 2 ? (
         <>
           <Recording />

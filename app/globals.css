@@ -57,7 +57,7 @@ body {
 
   /* PAGE COMMON */
   --page-x-padding: 165px;
-  --page-top-padding: 25px;
+  --page-top-padding: 30px;
 }
 
 thead th:nth-child(1) {
