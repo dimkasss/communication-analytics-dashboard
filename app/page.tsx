@@ -1,48 +1,33 @@
+import BlockWrapper from "@/components/BlockWrapper";
 import Card from "@/components/Card";
-
-const getMockArgs = (from: number, to: number, step = 1) => {
-  const xValues = [];
-  for (let i = from; i <= to; i += step) {
-    xValues.push(i);
-  }
-  return xValues;
-};
-
-const getMockValues = (from: number, to: number, step = 1) => {
-  const yValues = [];
-  for (let i = from; i <= to; i += step) {
-    yValues.push(Math.floor(Math.random() * 1000));
-  }
-  return yValues;
-};
-
-const MOCK_DATA_FROM = 0;
-const MOCK_DATA_TO = 100;
-const MOCK_DATA_STEP = 10;
+import RecordingsList from "@/components/RecordingsList";
+import StatsShorten from "@/components/StatsShorten";
 
 const MainPage = () => {
-  const args = getMockArgs(MOCK_DATA_FROM, MOCK_DATA_TO, MOCK_DATA_STEP);
-  const labels = args;
-  const datasets = [
-    {
-      label: "metrics1",
-      data: getMockValues(MOCK_DATA_FROM, MOCK_DATA_TO, MOCK_DATA_STEP),
-      borderColor: "red",
-    },
-    {
-      label: "metrics2",
-      data: getMockValues(MOCK_DATA_FROM, MOCK_DATA_TO, MOCK_DATA_STEP),
-      borderColor: "teal",
-    },
-  ];
   return (
-    <main>
-      <h1>Main page</h1>
-      <p>Страница с метриками и информацией по аудиозаписям</p>
-      <section className="flex flex-wrap justify-center">
-        <Card datasets={datasets} labels={labels} />
+    <div className="h-3/4">
+      <section className="font-extrabold text-4xl w-2/5 p-2 pb-6">
+        Сервис по <span className="bg-[--red] px-2">мониторингу</span> деловых
+        переговоров
       </section>
-    </main>
+      <section className="w-full h-full">
+        <div className="flex h-full gap-3">
+          <div className="flex flex-col w-1/2 gap-3">
+            <BlockWrapper name="Текущие записи" url="/recordings/current">
+              <RecordingsList len={2} />
+            </BlockWrapper>
+            <BlockWrapper name="Статистика" url="/stats">
+              <StatsShorten />
+            </BlockWrapper>
+          </div>
+          <div className="flex w-1/2">
+            <BlockWrapper name="Архив записей" url="/stats">
+              <RecordingsList len={4} />
+            </BlockWrapper>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 
