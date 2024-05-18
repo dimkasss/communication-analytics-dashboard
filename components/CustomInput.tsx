@@ -55,7 +55,7 @@ const Input = () => {
     axios
       .post("http://158.160.128.49:8000/conversation/file", formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "multipart/form-data", // should not affect the result but whatever
         },
       })
       .then((res) => {
