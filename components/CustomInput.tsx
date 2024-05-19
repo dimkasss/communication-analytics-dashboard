@@ -11,11 +11,6 @@ interface AudioSampleForListening {
 const Input = () => {
   const [files, setFiles] = useState<FileList | null>();
   const [urls, setUrls] = useState<AudioSampleForListening[]>([]);
-  const audioRef = useRef(null);
-
-  useEffect(() => {
-    console.log("@urls changed", urls);
-  }, [urls]);
 
   const pushAudioToUrls = () => {
     if (files == null) {
@@ -39,34 +34,29 @@ const Input = () => {
       alert("Файлы не выбраны!");
       return;
     }
-    const formData = new FormData();
 
-    // Array.from(files).forEach((file) => {
-    //   console.log("@file", file);
-    //   formData.append(file.name, file);
-    // });
-
-    console.log("@@", Array.from(files)[0]);
-
-    formData.append("file", Array.from(files)[0]);
+    Array.from(files).forEach((file) => {
+      const formData = new FormData();
+      formData.append("file", file);
+      axios
+        .post("http://51.250.19.25:8000/conversation/file", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data", // should not affect the result but whatever
+          },
+        })
+        .then((res) => {
+          console.log("@response", res);
+          return res;
+        });
+    });
 
     // http://158.160.128.49:8000/conversation/file
     // api/audio
-    axios
-      .post("http://158.160.128.49:8000/conversation/file", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data", // should not affect the result but whatever
-        },
-      })
-      .then((res) => {
-        console.log("@response", res);
-        return res;
-      });
   };
 
   return (
-    <div className="p-3 bg-slate-300">
-      <h1>Отправка аудио (.mp3, .wav)</h1>
+    <div className="p-3 bg-[--white] py-8">
+      <h1 className="text-2xl pb-5">Поддерживаемые форматы .mp3, .wav</h1>
       <input
         name="audio"
         accept=".mp3, .wav"

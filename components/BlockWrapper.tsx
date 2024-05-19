@@ -7,7 +7,7 @@ import ArrowLeft from "@/public/arrow-left.svg";
 interface BlockWrapperProps {
   children: ReactNode;
   name: string;
-  url: string;
+  url?: string;
   className?: string;
 }
 
@@ -25,14 +25,18 @@ const BlockWrapper: React.FC<BlockWrapperProps> = ({
     >
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-3xl font-medium">{name}</h2>
-        <Link className="flex gap-2" href={url}>
-          Подробнее
-          <Image
-            className="relative top-[1px]"
-            src={ArrowLeft}
-            alt="Подробнее"
-          />
-        </Link>
+        {url ? (
+          <Link className="flex gap-2" href={url}>
+            Подробнее
+            <Image
+              className="relative top-[1px]"
+              src={ArrowLeft}
+              alt="Подробнее"
+            />
+          </Link>
+        ) : (
+          <></>
+        )}
       </div>
 
       {children}

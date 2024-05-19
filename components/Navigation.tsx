@@ -26,10 +26,6 @@ export const FSRail = localFont({
 });
 
 const Navigation = () => {
-  const uploadAudio = () => {
-    alert("абоба");
-  };
-
   return (
     <nav
       className={
@@ -49,24 +45,21 @@ const Navigation = () => {
 
         <div className="flex">
           <div></div>
-          <CustomLink href="/recordings/current">Текущие записи</CustomLink>
-          <VerticalLine />
+          {/* <CustomLink href="/recordings/current">Текущие записи</CustomLink> */}
+          {/* <VerticalLine /> */}
           <CustomLink href="/recordings/archive">Архив записей</CustomLink>
           <VerticalLine />
           <CustomLink href="/stats">Статистика</CustomLink>
         </div>
       </section>
-      <section className="flex ">
-        <a
-          onClick={uploadAudio}
-          className="w-[--upload-audio-btn-width] flex items-center justify-center text-center gap-[10px] p-[--upload-audio-and-profile-padding] cursor-pointer"
-        >
-          <p>Загрузить аудиозапись </p>
+      <section className="flex">
+        <div className="w-[--upload-audio-btn-width] flex items-center justify-center text-center gap-[10px] p-[--upload-audio-and-profile-padding] cursor-pointer">
+          <Link href="/input">Загрузить аудиозапись </Link>
           <Image src={UploadLogo} alt="Загрузить" width={16} />
-        </a>
+        </div>
         <VerticalLine />
         <div className="w-[--user-profile-btn-width] flex items-center p-[--upload-audio-and-profile-padding]">
-          <p className="text-[--black-60]">Имя Фамилия</p>
+          <p className="text-[--black-60]">Александр Запорожских</p>
           <div className="flex gap-[--gap-default] p-[--logout-link-padding]">
             Выйти
             <Image

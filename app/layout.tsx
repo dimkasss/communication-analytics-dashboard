@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import localFont from "next/font/local";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryClientProvider } from "@/components/ReactQueryClientProvider";
 
 const FSRail = localFont({
   src: [
@@ -54,6 +56,8 @@ export const metadata: Metadata = {
     "Анализатор служебных переговоров РЖД для хакатона Цифровой прорыв",
 };
 
+const queryClient = new QueryClient();
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -62,10 +66,12 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={"flex flex-col bg-[--bg]" + " " + RuRail.className}>
-        <Navigation />
-        <main className="px-[--page-x-padding] pt-[--page-top-padding] grow">
-          {children}
-        </main>
+        <ReactQueryClientProvider>
+          <Navigation />
+          <main className="px-[--page-x-padding] pt-[--page-top-padding] grow">
+            {children}
+          </main>
+        </ReactQueryClientProvider>
       </body>
     </html>
   );

@@ -7,7 +7,7 @@ interface RecordingProps {
 }
 
 const Recording: React.FC<RecordingProps> = ({ params }) => {
-  return <div>Страница с информацией о записи №{params.rid}</div>;
+  return <div>1111</div>;
 };
 
 export default Recording;

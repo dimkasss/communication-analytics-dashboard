@@ -1,11 +1,15 @@
 import Image from "next/image";
-import Recording from "./Recording";
+import Recording, { RecordingObject } from "./Recording";
 
 import DeleteIcon from "@/public/delete-icon.svg";
 
-const RecordingEditable = () => {
+interface RecordingProps {
+  data: RecordingObject;
+}
+
+const RecordingEditable: React.FC<RecordingProps> = ({ data }) => {
   return (
-    <Recording>
+    <Recording data={data}>
       <div className="flex justify-between *:py-1 *:px-4 *:mt-2">
         <button className="bg-[--gray-20] flex items-center gap-2">
           Удалить
