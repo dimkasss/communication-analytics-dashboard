@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export function middleware(request: any) {
   const cspHeader = `
-  default-src 'self';
+  default-src 'self' 'unsafe-inline';
   script-src 'self' 'unsafe-inline';
   style-src 'self' 'unsafe-inline';
 `;
