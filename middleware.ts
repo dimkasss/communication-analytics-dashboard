@@ -4,6 +4,7 @@ export function middleware(request: any) {
   const cspHeader = `
   default-src 'self';
   script-src 'self' 'unsafe-inline';
+  style-src 'self' 'unsafe-inline';
 `;
 
   const requestHeaders = new Headers();
