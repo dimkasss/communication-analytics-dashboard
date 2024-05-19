@@ -3,7 +3,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import localFont from "next/font/local";
 
-export const FSRail = localFont({
+const FSRail = localFont({
   src: [
     {
       path: "./fonts/FSRAIL_Bold.otf",
@@ -18,7 +18,7 @@ export const FSRail = localFont({
   ],
 });
 
-export const RuRail = localFont({
+const RuRail = localFont({
   src: [
     {
       path: "./fonts/RuRailG_ExtendBold.otf",
