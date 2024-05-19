@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import localFont from "next/font/local";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryClientProvider } from "@/components/ReactQueryClientProvider";
+import { headers } from "next/headers";
 
 const FSRail = localFont({
   src: [
@@ -55,7 +56,6 @@ export const metadata: Metadata = {
   description:
     "Анализатор служебных переговоров РЖД для хакатона Цифровой прорыв",
 };
-
 const queryClient = new QueryClient();
 
 export default function RootLayout({
