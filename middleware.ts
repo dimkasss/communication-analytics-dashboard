@@ -3,20 +3,8 @@ import { NextResponse } from "next/server";
 export function middleware(request: any) {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
   const cspHeader = `
-    default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
-    style-src 'self' 'nonce-${nonce}';
-    img-src 'self' blob: data:;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    block-all-mixed-content;
-    upgrade-insecure-requests;
-    gap: http://51.250.19.25:8000 'unsafe-eval';
-    style-src 'self' 'unsafe-inline'; 
-    media-src *
+  default-src 'self';
+  script-src 'self' 'unsafe-inline';
 `;
 
   const requestHeaders = new Headers();
