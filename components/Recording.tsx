@@ -57,7 +57,7 @@ const Recording: React.FC<RecordingProps> = ({ children, data }) => {
   const mistakes = getMistakesCnt(data?.text);
   return (
     <div className="py-2 px-5 shadow-basic bg-[--white] w-full">
-      <h3 className="font-medium text-2xl mb-1">Запись №228</h3>
+      <h3 className="font-medium text-2xl mb-1">Запись №1437</h3>
       <table className="w-full">
         <thead>
           <tr>
