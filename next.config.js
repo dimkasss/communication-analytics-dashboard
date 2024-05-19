@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const cspHeader = `
-    default-src 'self' http://51.250.19.25:8000;
+    default-src http://51.250.19.25:8000/;
 `;
 
 module.exports = {
