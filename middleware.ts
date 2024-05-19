@@ -14,7 +14,9 @@ export function middleware(request: any) {
     frame-ancestors 'none';
     block-all-mixed-content;
     upgrade-insecure-requests;
-    data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *
+    gap: http://51.250.19.25:8000 'unsafe-eval';
+    style-src 'self' 'unsafe-inline'; 
+    media-src *
 `;
 
   const requestHeaders = new Headers();
